@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Invitación Gabriel</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <audio id="musicaFondo" src="Mi regalo.mp3" preload="auto" loop></audio>
+
+    <div class="contenedor-principal">
+        <img src="letras.png" class="img-letras">
+        <img src="nombre1.png" class="img-nombre">
+        
+        <img src="cigueña.png" class="img-cigueña">
+
+        <img src="ultrasonido.png" class="img-ultrasonido">
+
+        <div class="contenedor-verso">
+            <p class="verso-nube">Con cada Latido,
+Te esperamos.
+Con cada Sueño,
+Te imaginamos.
+Nuestro Amor Eterno.</p>
+        </div>
+
+        <div class="contenedor-datos">
+            <div class="texto-info">
+                <p>📍 Lugar del Evento</p>
+                <p>📅 25 de Mayo | 🕒 4:00 PM</p>
+            </div>
+
+            <a href="https://wa.me/521234567890?text=¡Hola!%20Confirmo%20mi%20asistencia%20al%20Baby%20Shower%20de%20Gabriel" 
+               class="boton" target="_blank">
+               Confirmar Asistencia
+            </a>
+
+            <a href="https://maps.app.goo.gl/TU_LINK_AQUI" 
+               class="boton" target="_blank">
+               Ver Ubicación
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function iniciarMusica() {
+            var audio = document.getElementById('musicaFondo');
+            audio.play().catch(function(error) {
+                console.log("Esperando interacción para audio...");
+            });
+        }
+        document.addEventListener('click', iniciarMusica, { once: true });
+        document.addEventListener('touchstart', iniciarMusica, { once: true });
+    </script>
+</body>
+</html>
