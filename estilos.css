@@ -1,0 +1,174 @@
+/* --- RESETEO Y FONDO --- */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
+html, body { 
+    height: 100%; 
+    width: 100%; 
+    overflow: hidden; 
+    background-color: #000; 
+    font-family: 'Comfortaa', cursive; 
+}
+
+.contenedor-principal {
+    width: 100vw; 
+    height: 100vh;
+    background-image: url('fondo_vertical.png'); /* Revisa que sea minúsculas */
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* --- FASE 1: LETRAS Y NOMBRE --- */
+.img-letras { 
+    position: absolute; 
+    width: 55%; 
+    margin-top: -300px; 
+    animation: entradaEsperaSalida 6s ease-in-out forwards; 
+}
+
+.img-nombre { 
+    position: absolute; 
+    width: 55%; 
+    margin-top: 100px; 
+    animation: entradaEsperaSalida 6s ease-in-out 1s forwards; 
+    opacity: 0; 
+}
+
+@keyframes entradaEsperaSalida {
+    0% { transform: translateY(100px); opacity: 0; }
+    15% { transform: translateY(0); opacity: 1; }
+    85% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-500px); opacity: 0; }
+}
+
+/* --- FASE 2: CIGUEÑA (Cambiado de ñ a n) --- */
+.img-ciguena { 
+    position: absolute; 
+    width: 65%; 
+    left: -100%; 
+    animation: vueloHorizontal 8s linear 7s forwards, aleteoVuelo 1s ease-in-out 7s infinite; 
+}
+
+@keyframes vueloHorizontal { 
+    0% { left: -100%; opacity: 1; } 
+    20% { left: 50%; transform: translateX(-50%); opacity: 1; } 
+    80% { left: 50%; transform: translateX(-50%); opacity: 1; } 
+    100% { left: 150%; opacity: 1; } 
+}
+
+@keyframes aleteoVuelo { 
+    0%, 100% { margin-top: 0; } 
+    50% { margin-top: -20px; } 
+}
+
+/* --- FASE 3: ULTRASONIDO --- */
+.img-ultrasonido { 
+    position: absolute; 
+    width: 65%; 
+    opacity: 0; 
+    animation: faseZoomYFade 12s ease-in-out 15s forwards; 
+    border-radius: 20px; 
+}
+
+@keyframes faseZoomYFade { 
+    0% { transform: scale(0); opacity: 0; } 
+    8% { transform: scale(1); opacity: 1; } 
+    92% { transform: scale(1); opacity: 1; } 
+    100% { opacity: 0; } 
+}
+
+/* --- FASE 4: VERSO NUBE --- */
+.contenedor-verso {
+    position: absolute;
+    width: 90%;
+    text-align: center;
+    animation: aparecerContenedor 1s forwards 27s, desaparecer 1s forwards 34s;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.verso-nube {
+    color: #ffffff;
+    font-size: 1.8rem; 
+    line-height: 1.4;
+    font-weight: 900;
+    text-shadow: 
+        0px 0px 8px #fff,
+        0px 0px 15px #fff,
+        0px 0px 30px #fff,
+        0px 0px 45px rgba(255, 255, 255, 0.5),
+        2px 4px 8px rgba(0, 0, 0, 0.3);
+    display: inline-block;
+    white-space: pre-wrap;
+    overflow: hidden;
+    animation: dictado 6s steps(50, end) 27.5s forwards;
+    width: 0; 
+    margin: 0 auto;
+}
+
+/* --- FASE 6: DATOS Y BOTONES --- */
+.contenedor-datos {
+    position: absolute;
+    width: 85%;
+    text-align: center;
+    opacity: 0;
+    animation: aparecerContenedor 1.5s forwards 35s; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.texto-info {
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(255,255,255,0.5);
+    margin-bottom: 10px;
+}
+
+.boton {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: #333;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 250px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.boton:active {
+    transform: scale(0.95);
+}
+
+/* --- KEYFRAMES COMPARTIDOS --- */
+@keyframes aparecerContenedor {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes desaparecer {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@keyframes dictado {
+    from { width: 0; }
+    to { width: 100%; } 
+}
