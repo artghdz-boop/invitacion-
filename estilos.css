@@ -16,7 +16,7 @@ html, body {
 .contenedor-principal {
     width: 100vw; 
     height: 100vh;
-    background-image: url('fondo_vertical.png');
+    background-image: url('fondo_vertical.png'); /* Revisa que sea minúsculas */
     background-repeat: no-repeat;
     background-position: center center;
     background-size: contain;
@@ -49,8 +49,8 @@ html, body {
     100% { transform: translateY(-500px); opacity: 0; }
 }
 
-/* --- FASE 2: CIGÜEÑA --- */
-.img-cigueña { 
+/* --- FASE 2: CIGUEÑA (Cambiado de ñ a n) --- */
+.img-ciguena { 
     position: absolute; 
     width: 65%; 
     left: -100%; 
@@ -90,7 +90,6 @@ html, body {
     position: absolute;
     width: 90%;
     text-align: center;
-    /* Combina entrada al seg 27 y salida al seg 34 */
     animation: aparecerContenedor 1s forwards 27s, desaparecer 1s forwards 34s;
     opacity: 0;
     display: flex;
